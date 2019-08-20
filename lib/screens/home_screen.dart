@@ -56,15 +56,17 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.grey[900],
       ),
       body: Container(
-        child: Container(
           height: 150,
-          child: ListView.builder(
-            itemCount: cardAlbums.length,
-            itemBuilder: _itemBuilder,
-            scrollDirection: Axis.horizontal,
-          ),
-        )
-      ),
+          child: Container(
+            child: ListView.separated(
+              itemCount: cardAlbums.length,
+              itemBuilder: _itemBuilder,
+              separatorBuilder: (context, index) => SizedBox(
+                width: 8,
+              ),
+              scrollDirection: Axis.horizontal,
+            ),
+      )),
     );
   }
 }
