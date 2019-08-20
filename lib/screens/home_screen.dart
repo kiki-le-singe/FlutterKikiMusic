@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_kiki_music/widgets/card_album.dart';
+import 'package:flutter_kiki_music/widgets/card_album_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({this.title});
@@ -39,12 +40,26 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   ];
 
-  CardAlbum _itemBuilder(context, i) {
+  CardAlbum _recentListeningItemBuilder(context, i) {
     Map cardAlbum = cardAlbums[i];
     return CardAlbum(
         coverName: cardAlbum["coverName"],
         title: cardAlbum["title"],
         artists: cardAlbum["artists"]);
+  }
+
+  Widget _recentListeningSliderBuild() {
+    return Container(
+      height: 180,
+      child: ListView.separated(
+        itemCount: cardAlbums.length,
+        itemBuilder: _recentListeningItemBuilder,
+        separatorBuilder: (context, index) => SizedBox(
+          width: 8,
+        ),
+        scrollDirection: Axis.horizontal,
+      ),
+    );
   }
 
   @override
@@ -56,17 +71,14 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.grey[900],
       ),
       body: Container(
-          child: Container(
-            height: 180,
-            child: ListView.separated(
-              itemCount: cardAlbums.length,
-              itemBuilder: _itemBuilder,
-              separatorBuilder: (context, index) => SizedBox(
-                width: 8,
-              ),
-              scrollDirection: Axis.horizontal,
-            ),
-      )),
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: <Widget>[
+              CardAlbumSlider(title: 'Écoutés récemment', child: _recentListeningSliderBuild()),
+              CardAlbumSlider(title: 'Vos favoris du moment', child: _recentListeningSliderBuild()),
+            ],
+          )
+      ),
     );
   }
 }
