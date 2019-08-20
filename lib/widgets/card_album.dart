@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CardAlbum extends StatelessWidget {
-  CardAlbum ({@required this.coverName, @required this.title, this.artists = const []});
+  CardAlbum(
+      {@required this.coverName,
+      @required this.title,
+      this.artists = const []});
 
   final String coverName;
   final String title;
@@ -16,21 +19,12 @@ class CardAlbum extends StatelessWidget {
 
   Widget _buildCover() {
     return Container(
-      decoration: new BoxDecoration(
-        color: Colors.transparent,
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.lightBlue,
-            offset: Offset(0, 4.0),
-            blurRadius: 40.0,
-            spreadRadius: -5,
-          ),
-        ],
+      width: 125,
+      height: 125,
+      child: Image.asset(
+        coverName,
+        fit: BoxFit.cover,
       ),
-        width: 150,
-        height: 100,
-        child: Image.asset(coverName, fit: BoxFit.cover,),
-
     );
   }
 
@@ -44,14 +38,14 @@ class CardAlbum extends StatelessWidget {
     dynamic formattedArtists = _formatArtists(artists);
 
     if (formattedArtists != null) {
-      children.add(Text(formattedArtists, style: textTheme.body2));
+      children.add(Text(formattedArtists, style: textTheme.body2, textAlign: TextAlign.center,));
     }
 
     return Container(
-      width: 150,
+      width: 125,
       height: 150,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: children,
       ),
     );

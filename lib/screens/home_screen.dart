@@ -56,8 +56,8 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.grey[900],
       ),
       body: Container(
-          height: 150,
           child: Container(
+            height: 180,
             child: ListView.separated(
               itemCount: cardAlbums.length,
               itemBuilder: _itemBuilder,
