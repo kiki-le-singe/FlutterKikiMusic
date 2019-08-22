@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         // - https://flutter.dev/docs/cookbook/design/themes
         // - https://api.flutter.dev/flutter/material/TextTheme-class.html
         textTheme: TextTheme(
+          headline: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500, color: Colors.white),
           body1: TextStyle(fontSize: 14.0, color: Colors.white),
           body2: TextStyle(fontSize: 12.0, color: Color(0x62FFFFFF)),
         ),
