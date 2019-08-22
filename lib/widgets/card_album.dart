@@ -38,7 +38,11 @@ class CardAlbum extends StatelessWidget {
     dynamic formattedArtists = _formatArtists(artists);
 
     if (formattedArtists != null) {
-      children.add(Text(formattedArtists, style: textTheme.body2, textAlign: TextAlign.center,));
+      children.add(Text(
+        formattedArtists,
+        style: textTheme.body2,
+        textAlign: TextAlign.center,
+      ));
     }
 
     return Container(

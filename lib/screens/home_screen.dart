@@ -70,15 +70,23 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(widget.title),
         backgroundColor: Colors.grey[900],
       ),
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: <Widget>[
-              CardAlbumSlider(title: 'Écoutés récemment', child: _recentListeningSliderBuild()),
-              CardAlbumSlider(title: 'Vos favoris du moment', child: _recentListeningSliderBuild()),
-            ],
-          )
-      ),
+      body: SingleChildScrollView(
+          padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+          child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  CardAlbumSlider(
+                      title: 'Écoutés récemment',
+                      child: _recentListeningSliderBuild()),
+                  CardAlbumSlider(
+                      title: 'Vos favoris du moment',
+                      child: _recentListeningSliderBuild()),
+                  CardAlbumSlider(
+                      title: 'Playlist', child: _recentListeningSliderBuild()),
+                ],
+              ))),
     );
   }
 }
