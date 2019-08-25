@@ -45,12 +45,19 @@ class CardAlbum extends StatelessWidget {
       ));
     }
 
-    return Container(
-      width: 125,
-      height: 150,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: children,
+    return InkWell(
+      onTap: () {
+        // Navigate to the playlist screen using a named route.
+        // @TODO: pass arguments. See https://flutter.dev/docs/cookbook/navigation/navigate-with-arguments
+        Navigator.pushNamed(context, '/playlist');
+      },
+      child: Container(
+        width: 125,
+        height: 150,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: children,
+        ),
       ),
     );
   }
