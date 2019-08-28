@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CardAlbum extends StatelessWidget {
+  final String coverName;
+  final String title;
+  final List<String> artists;
+
   CardAlbum(
       {@required this.coverName,
       @required this.title,
       this.artists = const []});
-
-  final String coverName;
-  final String title;
-  final List<String> artists;
 
   dynamic _formatArtists(List artists) {
     if (artists.isNotEmpty) {
