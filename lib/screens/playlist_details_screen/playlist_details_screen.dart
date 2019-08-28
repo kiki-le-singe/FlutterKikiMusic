@@ -6,7 +6,6 @@ class PlaylistDetailsScreen extends StatefulWidget {
   final String title;
 
   @override
-  _PlaylistDetailsScreenState createState() => _PlaylistDetailsScreenState();
 }
 
 class _PlaylistDetailsScreenState extends State<PlaylistDetailsScreen> {
@@ -15,7 +14,6 @@ class _PlaylistDetailsScreenState extends State<PlaylistDetailsScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(widget.title),
         backgroundColor: Colors.grey[900],
       ),
       body: SingleChildScrollView(
