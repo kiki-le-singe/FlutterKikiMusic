@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_kiki_music/screens/home_screen.dart';
-import 'package:flutter_kiki_music/screens/playlist_details_screen.dart';
+import 'package:flutter_kiki_music/router/route_generator.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,12 +28,7 @@ class MyApp extends StatelessWidget {
       // https://flutter.dev/docs/development/ui/navigation
       // https://flutter.dev/docs/cookbook/navigation/named-routes#2-define-the-routes
       initialRoute: '/',
-      routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => HomeScreen(title: 'Home'),
-        // When navigating to the "/second" route, build the SecondScreen widget.
-        '/playlist': (context) => PlaylistDetailsScreen(title: 'Playlist'),
-      },
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
