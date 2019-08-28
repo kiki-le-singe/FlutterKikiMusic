@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_kiki_music/router/constants.dart';
+import 'package:flutter_kiki_music/screens/playlist_details_screen/playlist_details_screen_arguments.dart';
 
 class CardAlbum extends StatelessWidget {
   final String coverName;
@@ -48,8 +50,13 @@ class CardAlbum extends StatelessWidget {
     return InkWell(
       onTap: () {
         // Navigate to the playlist screen using a named route.
-        // @TODO: pass arguments. See https://flutter.dev/docs/cookbook/navigation/navigate-with-arguments
-        Navigator.pushNamed(context, '/playlist');
+        Navigator.pushNamed(
+          context,
+          PlaylistDetailsScreenRouteName,
+          arguments: PlaylistDetailsScreenArguments(
+            title: title,
+          ),
+        );
       },
       child: Container(
         width: 125,
